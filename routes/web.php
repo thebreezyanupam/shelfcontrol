@@ -36,6 +36,7 @@ Route::group(['prefix' => 'admin', ] ,function () {
 
         //Genre Routes
         Route::get('/genres/create', [GenreController::class, 'create'])->name('genres.create');
+        Route::post('/genres', [GenreController::class, 'store'])->name('genres.store');
     });
 
 

@@ -20,19 +20,19 @@ class GenreController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
     }
 
     public function edit($id)
     {
-        dd($id);
+        // dd($id);
     }
 
     public function update(Request $request, $id)
     {
-        dd($request->all(), $id);
+        // dd($request->all(), $id);
     }
     public function destroy($id){
-        dd($id);
+        // dd($id);
     }
 }
