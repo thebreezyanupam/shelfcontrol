@@ -15,22 +15,30 @@
 		<div class="container">
 			<div class="row justify-content-center align-items-center min-vh-100">
 				<div class="col-md-6 col-lg-5 col-xl-4">
+					@include('admin.message')
 					<div class="card border-0 shadow-lg">
 						<div class="card-body p-5">
 							<h2 class="text-center mb-4 fw-bold text-primary">Admin Panel</h2>
 							<p class="text-center text-muted mb-4">Sign in to start your session</p>
-							<form action="dashboard.html" method="post">
+							<form action="{{ route('admin.authenticate') }}" method="post">
+								@csrf
 								<div class="mb-4">
 									<div class="input-group">
 										<span class="input-group-text bg-light border-end-0"><i class="fas fa-envelope text-muted"></i></span>
-										<input type="email" class="form-control border-start-0 ps-0" placeholder="Email" required>
+										<input type="email" value="{{old('email')}}" name="email" id="email" class="form-control @error('email') is-invalid @enderror border-start-0 ps-0" placeholder="Email" required>
 									</div>
+									@error('email')
+									<p class="invalid-feedback">{{$message}}</p>
+									@enderror
 								</div>
 								<div class="mb-4">
 									<div class="input-group">
 										<span class="input-group-text bg-light border-end-0"><i class="fas fa-lock text-muted"></i></span>
-										<input type="password" class="form-control border-start-0 ps-0" placeholder="Password" required>
+										<input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror border-start-0 ps-0" placeholder="Password" required>
 									</div>
+									@error('password')
+									<p class="invalid-feedback">{{$message}}</p>
+									@enderror
 								</div>
 								<div class="d-grid">
 									<button type="submit" class="btn btn-primary py-2 fw-bold">Login</button>
