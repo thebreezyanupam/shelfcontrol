@@ -9,6 +9,7 @@
 		<!-- Font Awesome -->
 		<link rel="stylesheet" href="{{asset('admin-asset/plugins/fontawesome-free/css/all.min.css')}}">
 		<!-- Theme style -->
+		<link rel="stylesheet" href="{{asset('admin-asset/plugins/dropzone/min/dropzone.min.css')}}">
 		<link rel="stylesheet" href="{{asset('admin-asset/css/adminlte.min.css')}}">
 		<link rel="stylesheet" href="{{asset('admin-asset/css/custom.css')}}">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
@@ -83,6 +84,7 @@
 		<script src="{{asset('admin-asset/js/adminlte.min.js')}}"></script>
 		<!-- AdminLTE for demo purposes -->
 		<script src="{{asset('admin-asset/js/demo.js')}}"></script>
+		<script src="{{asset('admin-asset/plugins/dropzone/min/dropzone.min.js')}}"></script>
 
 		<!-- CSRF Token -->
 		<script type="text/javascript">
