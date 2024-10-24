@@ -9,10 +9,16 @@ use App\Models\Genre;
 use Illuminate\Support\Facades\Session;
 class GenreController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $genres = Genre::latest()->paginate(10);
-        return view('admin.genres.list');
+        $genres = Genre::latest();
+
+        if(!empty($request->get('keyword'))){
+            $genres = $genres->where('name', 'like', '%'.$request->get('keyword').'%');
+        }
+        $genres = $genres->paginate(10);
+        
+        return view('admin.genres.list', compact('genres'));
     }
 
     public function create()
